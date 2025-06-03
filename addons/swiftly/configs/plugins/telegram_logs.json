@@ -1,0 +1,7 @@
+{
+    "server_name": "name",
+    "server_ip": "0.0.0.0:27015",
+
+    "bot_token": "@BotFather",
+    "chat_id": "chat_id"
+}
