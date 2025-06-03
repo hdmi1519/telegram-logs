@@ -18,20 +18,20 @@ Plugin for CS2 servers, for logging in telegram
 
 ## 🚀 Usage
 ```javascript
-AddEventHandler("OnPlayerConnectFull", function(event)
-	exports["telegram_logs"].SendToTelegram("👤 New Player Connect!")
-
-    return EventResult.Continue
-end)
+AddEventHandler("OnPlayerConnectFull", function(event) {
+    exports["telegram_logs"].SendToTelegram("👤 New Player Connect!")
+    
+    return EventResult.Continue;
+});
 
 AddEventHandler("OnPlayerConnectFull", function(event) {
-	const userId = event.GetInt("userid");
-	const player = GetPlayer(userId);
+    const userId = event.GetInt("userid");
+    const player = GetPlayer(userId);
     if (!player || player.IsFakeClient()) return EventResult.Continue;
 
-	const steamId = player.GetSteamID();
+    const steamId = player.GetSteamID();
 
-	exports["telegram_logs"].SendToTelegram("👤 New Player Connect!", [
+    exports["telegram_logs"].SendToTelegram("👤 New Player Connect!", [
         { text: "Web Site", type: "url", value: "https://domain.com", row: 0 },
         { text: "Web App Site", type: "web_app", value: "https://domain.com", row: 1 },
         { text: "Kick", type: "callback", value: `kick_player_${steamId}`, row: 2 }
